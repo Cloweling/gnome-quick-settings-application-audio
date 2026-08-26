@@ -1,0 +1,87 @@
+/* Application Volume Mixer
+ *
+ * Styling deliberately reuses the metrics of the shell's own Quick Settings
+ * widgets, so the section blends in with the rest of the menu.
+ */
+
+.app-volume-list {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.app-volume-header {
+    border-radius: 99px;
+    padding: 6px 12px;
+    spacing: 8px;
+    color: inherit;
+    background-color: transparent;
+}
+
+.app-volume-header:hover,
+.app-volume-header:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.app-volume-header:active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.app-volume-header-icon {
+    icon-size: 16px;
+    padding-right: 8px;
+}
+
+.app-volume-header-title {
+    font-weight: bold;
+}
+
+.app-volume-header-count {
+    padding: 0 8px;
+    opacity: 0.7;
+    font-size: 0.9em;
+}
+
+.app-volume-header-expander {
+    icon-size: 16px;
+}
+
+.app-volume-rows {
+    spacing: 4px;
+    padding: 4px 0 0 0;
+}
+
+.app-volume-row {
+    padding: 2px 6px;
+    spacing: 2px;
+}
+
+.app-volume-row-title {
+    spacing: 8px;
+    padding: 0 6px;
+}
+
+.app-volume-app-icon {
+    icon-size: 16px;
+}
+
+.app-volume-app-name {
+    font-size: 0.9em;
+}
+
+.app-volume-percentage {
+    font-size: 0.9em;
+    font-feature-settings: "tnum";
+    opacity: 0.7;
+}
+
+.app-volume-row-slider {
+    spacing: 8px;
+}
+
+.app-volume-placeholder {
+    padding: 8px 12px;
+    opacity: 0.7;
+    font-size: 0.9em;
+}
