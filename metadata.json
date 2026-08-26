@@ -1,0 +1,11 @@
+{
+  "uuid": "app-volume-mixer@cloweling.github.io",
+  "name": "Application Volume Mixer",
+  "description": "Per-application audio controls in Quick Settings.\n\nAdds a collapsible section to the Quick Settings menu that lists every application currently playing (and optionally recording) audio, with an individual volume slider and mute button for each one. Works with both PipeWire and PulseAudio through the GNOME audio stack.",
+  "shell-version": ["50"],
+  "session-modes": ["user"],
+  "settings-schema": "org.gnome.shell.extensions.app-volume-mixer",
+  "gettext-domain": "app-volume-mixer",
+  "url": "https://github.com/Cloweling/gnome-quick-settings-application-audio",
+  "version-name": "1.0.0"
+}

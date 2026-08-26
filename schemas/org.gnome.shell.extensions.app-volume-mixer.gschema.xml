@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="app-volume-mixer">
+  <schema id="org.gnome.shell.extensions.app-volume-mixer"
+          path="/org/gnome/shell/extensions/app-volume-mixer/">
+
+    <key name="expanded" type="b">
+      <default>true</default>
+      <summary>Section expanded</summary>
+      <description>
+        Whether the application volume section is expanded in Quick Settings.
+        The state is remembered across sessions.
+      </description>
+    </key>
+
+    <key name="show-input-streams" type="b">
+      <default>false</default>
+      <summary>Show recording applications</summary>
+      <description>
+        Also list applications that are recording audio, so their input volume
+        can be adjusted independently.
+      </description>
+    </key>
+
+    <key name="show-percentage" type="b">
+      <default>true</default>
+      <summary>Show volume percentage</summary>
+      <description>
+        Display the current volume of every application as a percentage next to
+        its name.
+      </description>
+    </key>
+
+    <key name="show-media-name" type="b">
+      <default>false</default>
+      <summary>Show stream description</summary>
+      <description>
+        Append the description reported by the audio stream (usually the media
+        title) to the application name.
+      </description>
+    </key>
+
+    <key name="hide-when-empty" type="b">
+      <default>true</default>
+      <summary>Hide when no application plays audio</summary>
+      <description>
+        Remove the section from Quick Settings entirely while no application is
+        using the audio stack, instead of showing a placeholder.
+      </description>
+    </key>
+
+    <key name="max-visible-apps" type="u">
+      <default>0</default>
+      <range min="0" max="20"/>
+      <summary>Maximum number of listed applications</summary>
+      <description>
+        Limit how many applications are listed at once to keep Quick Settings
+        compact. Set to 0 for no limit.
+      </description>
+    </key>
+
+    <key name="remember-volumes" type="b">
+      <default>false</default>
+      <summary>Remember per-application volumes</summary>
+      <description>
+        Restore the last volume and mute state of an application when it starts
+        playing audio again. Leave this off when the audio server already
+        restores per-application volumes (the default with both PipeWire and
+        PulseAudio).
+      </description>
+    </key>
+
+    <key name="app-volumes" type="a{s(db)}">
+      <default>{}</default>
+      <summary>Stored per-application volumes</summary>
+      <description>
+        Maps an application identifier to its last known volume (as a fraction
+        of the normal maximum volume) and mute state.
+      </description>
+    </key>
+
+  </schema>
+</schemalist>
