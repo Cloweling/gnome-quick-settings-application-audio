@@ -11,7 +11,11 @@ but without leaving the shell.
 
 ## Features
 
-- A collapsible **Application Volume** section inside Quick Settings.
+- An **App Volume** entry inside Quick Settings that opens its own popup,
+  exactly like the shell's *Background Apps* entry: the rest of the menu is
+  dimmed while the popup is focused.
+- The entry always sits below every other Quick Settings item, even ones added
+  by other extensions — only *Background Apps* stays below it.
 - One row per audio stream: application icon, name, live volume slider, mute
   button and (optionally) the volume percentage.
 - Rows appear and disappear as applications start and stop playing audio.
@@ -24,7 +28,6 @@ but without leaving the shell.
 - Works with **PipeWire** and **PulseAudio**: the extension talks to the same
   `libgvc` mixer control the shell itself uses, so whatever GNOME supports is
   supported here too.
-- The expanded/collapsed state is remembered across sessions.
 
 ## Requirements
 
@@ -58,10 +61,11 @@ gnome-extensions install --force build/app-volume-mixer@cloweling.github.io.shel
 ## Usage
 
 1. Open Quick Settings (click the system menu in the top-right corner).
-2. Find the **Application Volume** section. It only appears while at least one
-   application is using audio, unless *Hide when idle* is turned off.
-3. Click the section header to expand or collapse the list. The choice is
-   remembered.
+2. Find the **App Volume** entry at the bottom of the menu. It only appears
+   while at least one application is using audio, unless *Hide when idle* is
+   turned off.
+3. Click it to open the popup with one row per application; the rest of Quick
+   Settings is dimmed while the popup is open.
 4. Drag a slider to change that application's volume, or scroll over it.
    Dragging the slider all the way down mutes the application, exactly like the
    system volume slider.
@@ -83,7 +87,7 @@ gnome-extensions prefs app-volume-mixer@cloweling.github.io
 | --- | --- | --- |
 | Show volume percentage | on | Show the current level next to each application |
 | Show stream description | off | Append what the application reports it is playing |
-| Hide when idle | on | Remove the section while nothing plays audio |
+| Hide when idle | on | Remove the entry while nothing plays audio |
 | Maximum applications | 0 (no limit) | Cap how many rows are listed at once |
 | Include recording applications | off | Also list applications capturing audio |
 | Remember application volumes | off | Restore the last volume when an application plays again |
@@ -100,8 +104,8 @@ if that is not the behaviour you get.
 | `lib/streamMonitor.js` | Watches `Gvc.MixerControl` and tracks eligible streams |
 | `lib/appInfo.js` | Maps a stream to an application name and icon |
 | `lib/appVolumeRow.js` | One application row (slider, mute button, labels) |
-| `lib/appVolumeList.js` | The collapsible Quick Settings section |
-| `lib/indicator.js` | `SystemIndicator` that contributes the section |
+| `lib/appVolumeToggle.js` | The Quick Settings entry and its popup menu |
+| `lib/indicator.js` | `SystemIndicator` that contributes the entry |
 | `lib/volumeStore.js` | Optional persistence of per-application volumes |
 | `prefs.js` | Preferences window |
 
@@ -110,7 +114,7 @@ owned by GNOME Shell, so it adds no extra connection to the audio server.
 
 ## Troubleshooting
 
-**Nothing shows up.** The section is hidden while no application is playing
+**Nothing shows up.** The entry is hidden while no application is playing
 audio. Start some audio, or turn off *Hide when idle*.
 
 **An application is missing.** Applications that only monitor audio levels
