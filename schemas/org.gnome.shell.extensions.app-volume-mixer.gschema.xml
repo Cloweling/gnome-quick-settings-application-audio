@@ -3,15 +3,6 @@
   <schema id="org.gnome.shell.extensions.app-volume-mixer"
           path="/org/gnome/shell/extensions/app-volume-mixer/">
 
-    <key name="expanded" type="b">
-      <default>true</default>
-      <summary>Section expanded</summary>
-      <description>
-        Whether the application volume section is expanded in Quick Settings.
-        The state is remembered across sessions.
-      </description>
-    </key>
-
     <key name="show-input-streams" type="b">
       <default>false</default>
       <summary>Show recording applications</summary>
@@ -43,8 +34,8 @@
       <default>true</default>
       <summary>Hide when no application plays audio</summary>
       <description>
-        Remove the section from Quick Settings entirely while no application is
-        using the audio stack, instead of showing a placeholder.
+        Remove the entry from Quick Settings entirely while no application is
+        using the audio stack, instead of showing an empty popup.
       </description>
     </key>
 
