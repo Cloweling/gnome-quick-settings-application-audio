@@ -10,6 +10,22 @@
     background-color: transparent;
 }
 
+/* The transparent background above overrides the shell theme's own button
+ * state rules (extension stylesheets take precedence), so restore the
+ * hover/active/focus feedback with the same colors the theme uses for
+ * flat buttons such as the Background Apps entry. */
+.app-volume-quick-toggle:focus {
+    background-color: st-mix(st-mix(-st-accent-color, #ffffff, 60%), rgba(54, 54, 58, 0.25), 5%);
+}
+
+.app-volume-quick-toggle:hover {
+    background-color: st-lighten(st-mix(#ffffff, #36363a, 9%), 4%);
+}
+
+.app-volume-quick-toggle:active {
+    background-color: st-lighten(st-mix(#ffffff, #36363a, 9%), 9%);
+}
+
 .app-volume-quick-toggle StIcon {
     icon-size: 16px !important;
 }
